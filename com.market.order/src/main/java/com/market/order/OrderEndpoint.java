@@ -32,6 +32,7 @@ public class OrderEndpoint {
 		return ResponseEntity.ok(order);
 	}
 
+	// 에러 메세지 전달
 	@RabbitListener(queues = "${message.queue.err.order}")
 	public void errOrder(DeliveryMessage message) {
 		log.info("ERROR RECEIVE !!!");
